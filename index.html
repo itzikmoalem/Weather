@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .HeadLine {
+            background-color: #becfea;
+            padding: 2%;
+        }
+        .MyForm {
+            background-color: #d3e0f4;
+            padding: 2%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            border: 1px solid #ddd;
+            margin-top: -1px; /* Prevent double borders */
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+            position: relative;
+        }
+
+        ul li:hover {
+            background-color: #eee;
+        }
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 12px 16px;
+            transform: translate(0%, -50%);
+        }
+
+        .close:hover {background: #bbb;}
+
+        body {
+            overflow-x: hidden;
+        }
+
+        li {
+            cursor: pointer;
+        }
+
+    </style>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Ex3 - Weather (Ajax) : Itzik Moalem 313181638</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let element = document.getElementById("AddButton");
+            element.addEventListener("click", Added);
+        }, false);
+
+    </script>
+
+</head>
+
+<body>
+
+<script src="functions.js"> </script>
+
+<div class="col-mt-6">
+    <div class="container-fluid"> <br>
+        <h5> link to <a href="readme.html"> my readme</a></h5>
+        <div class="HeadLine">
+            <h2>Internet Programming - Exercise 3 : Itzik Moalem </h2>
+        </div>
+    </div> <br>
+    <img src="icons/weatherbanner.png" alt="Weather Banner" class="container-fluid">
+</div> <br>
+
+<!--Error dynamic list-->
+<div id="errors" class="container-fluid">
+</div> <br>
+
+<!----------------------Form Information------------------------>
+
+<div class="col-mt-6" style="padding: 1%">
+    <form class="MyForm" id="addForm">
+        <h4> <b>Add a Location:</b></h4> <br>
+
+        <!-----Location Name----->
+        <div class="form-group">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity" placeholder="Jerusalem">
+        </div>
+
+        <!-----Latitude & Longitude----->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputLatitude">Latitude</label>
+                <input type="text" step="any" min="-90" max="90" class="form-control" id="inputLatitude" placeholder="Range: [-90,90]">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLongitude">Longitude</label>
+                <input type="text" step="any" min="-180" max="180" class="form-control" id="inputLongitude" placeholder="Range: [-180,180]">
+            </div>
+        </div>
+
+        <!-----Submit Button----->
+        <button id="AddButton" type="button" class="btn btn-primary">Add Locatoin</button>
+    </form>
+</div>
+
+<!----------------------List of Locations------------------------>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <h4 style="background-color: #d3e0f4"><b>List of Locations:</b></h4>
+            <ul id="mylist">
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <h4 style="background-color: #d3e0f4"><b>Weather:</b></h4>
+            <div id="weater">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
